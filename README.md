@@ -1,4 +1,6 @@
-![HTTP-Basma](Logo/logo.png)
+<div align="center">
+  <img src="Logo/logo.png" alt="HTTP-Basma Logo" width="200" height="200">
+</div>
 
 # Adaptive Fingerprinting: HTTP-Basma's Multi-Stage Probing for Granular Server Differentiation
 
