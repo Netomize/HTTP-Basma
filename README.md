@@ -42,19 +42,24 @@ The full technical details of how the algorithm works are in the attached paper.
 Sample of fingerprints:
 
 [**CobaltStrike**](https://www.cobaltstrike.com/)
+```
   - verbosus fp: 011420958a0014514bd5221420958a221420958a221420958a2200001420958a22000000001f
   - pacto fp: 02464ae8b7d86f82c9918e2c2b9d6b91
   - note: false-positive rate 0.0072 (72/1-million)
-
+```
 [**Havoc**](https://github.com/HavocFramework/Havoc)
+```
   - verbosus fp: 01142494d600142494d622142494d622142494d622142494d6220000142494d6220000000000
   - pacto fp: 0286559412a4e004eb91e71a9a263f10
   - note: false-positive rate 0.0073 (73/1-million)
+```
 
 [**BruteRatel**](https://bruteratel.com/)
+```
   - verbosus fp: 01140a85e40014512f3612140a85e422140a85e422140a85e4220000140a85e4220000000001
   - pacto fp: 0207292309a7a7e798e417d69df5f2a5
   - note: false-positive rate 0.0073 (73/1-million)
+```
 
 ---
 
