@@ -19,3 +19,18 @@ Clustering and Hunting: These hashes empower server clustering, identification o
 
 Modular Design for Expansion: The algorithm's architecture fosters the addition of new hashing variants, encouraging collaboration and adaptability.
 In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase some compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of various malware families' C&C HTTP servers. The source code and supporting data will be made available.
+---
+
+The full technical details of how the algorithm works are in the attached paper.
+
+Netomize ships a Windows x64 compiled version of the public code in this repo.
+
+# Third-party libraries used
+
+- [Chilkat: library for website spidering, HTTP communications, hashing, JSON parsing and file compression (ZIP), among others](https://www.chilkatsoft.com/)
+- [Color Console: for console coloring](https://github.com/imfl/color-console)
+- [cxxopts (v3.3.1)](https://github.com/jarro2783/cxxopts)
+
+# Contributing
+
+Open for pull requests and issues. Comments and suggestions are greatly appreciated.
