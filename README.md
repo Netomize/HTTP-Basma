@@ -28,7 +28,7 @@ Netomize ships a Windows x64 compiled version of the public code in this repo.
 
 # Third-party libraries used
 
-- [Chilkat: library for website spidering, HTTP communications, hashing, JSON parsing and file compression (ZIP), among others](https://www.chilkatsoft.com/)
+- [Chilkat v11.4.0](https://www.chilkatsoft.com/)
 - [Color Console: for console coloring](https://github.com/imfl/color-console)
 - [cxxopts (v3.3.1)](https://github.com/jarro2783/cxxopts)
 
