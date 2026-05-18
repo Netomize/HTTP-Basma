@@ -22,7 +22,43 @@ In this paper, we first survey notable existing work on HTTP fingerprinting and 
 
 ---
 
+HTTP-Basma’s algorithm's core idea centers on sending 8 specially crafted HTTP requests with different requirements to solicit different responses from the server. Once the server response is retrieved, the HTTP status line is surgically dissected for all elements and encoded optimally. Additionally, select headers from the server response are checked for encoding as well.
+
+The requests it sends are of these types:
+
+  1. **P1** - GET Normal - Valid Request
+  2. **P2** - GET Invalid HTTP Version Request
+  3. **P3** - GET Random Resource Request
+  4. **P4** - Random Verb Request
+  5. **P5** - get Lowercase Verb
+  6. **P6** - GET Request - Accept-Encoding - Full
+  7. **P7** - GET Request - Accept-Encoding - Less
+  8. **P8** - OPTIONS Request
+
+Following each request, the server's response is analyzed to extract specific headers and their values. This extracted data undergoes further processing, including dissection and encoding, to generate a reversible fingerprint.
+
 The full technical details of how the algorithm works are in the attached paper.
+
+Sample of fingerprints:
+
+[**CobaltStrike**](https://www.cobaltstrike.com/)
+  - verbosus fp: 011420958a0014514bd5221420958a221420958a221420958a2200001420958a22000000001f
+  - pacto fp: 02464ae8b7d86f82c9918e2c2b9d6b91
+  - note: false-positive rate 0.0072 (72/1-million)
+
+[**Havoc**](https://github.com/HavocFramework/Havoc)
+  - verbosus fp: 01142494d600142494d622142494d622142494d622142494d6220000142494d6220000000000
+  - pacto fp: 0286559412a4e004eb91e71a9a263f10
+  - note: false-positive rate 0.0073 (73/1-million)
+
+[**BruteRatel**](https://bruteratel.com/)
+  - verbosus fp: 01140a85e40014512f3612140a85e422140a85e422140a85e4220000140a85e4220000000001
+  - pacto fp: 0207292309a7a7e798e417d69df5f2a5
+  - note: false-positive rate 0.0073 (73/1-million)
+
+---
+
+# Release
 
 Netomize ships a Windows x64 compiled version of the public code in this repo.
 
