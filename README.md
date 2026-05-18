@@ -19,6 +19,7 @@ Clustering and Hunting: These hashes empower server clustering, identification o
 
 Modular Design for Expansion: The algorithm's architecture fosters the addition of new hashing variants, encouraging collaboration and adaptability.
 In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase some compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of various malware families' C&C HTTP servers. The source code and supporting data will be made available.
+
 ---
 
 The full technical details of how the algorithm works are in the attached paper.
