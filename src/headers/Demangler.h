@@ -6,7 +6,7 @@
 	details    Takes a verbosus fingerprint and reconstructs the attributes of 
                each probe, outputting a comprehensive JSON object.
 
-			   See LICENSE file in top level directory for details.
+			   See LICENSE file for details.
 
 	copyright  Netomize. Copyright (c) 2026.  All rights reserved.
 */
