@@ -45,7 +45,7 @@ Sample of fingerprints:
 ```
   - verbosus fp: 011420958a0014514bd5221420958a221420958a221420958a2200001420958a22000000001f
   - pacto fp: 02464ae8b7d86f82c9918e2c2b9d6b91
-  - note: false-positive rate 0.0072 (72/1-million)
+  - note: false-positive rate (72/986,910)
 ```
 [**Havoc**](https://github.com/HavocFramework/Havoc)
 ```
@@ -60,8 +60,351 @@ Sample of fingerprints:
 ```
   - verbosus fp: 01140a85e40014512f3612140a85e422140a85e422140a85e4220000140a85e4220000000001
   - pacto fp: 0207292309a7a7e798e417d69df5f2a5
-  - note: false-positive rate 0.0073 (73/1-million)
+  - note: false-positive rate (73/986,910)
 ```
+
+[**Google**](https://google.com/)
+```
+  - verbosus fp: 01140a85e4001320958a22142494d62214254c5e2214254c5e22080014254c5e220000000000
+  - pacto fp: 0202be780e1eaae0eaa6184e20c909b6
+  - note: false-positive rate (4/986,910)
+```
+
+[**YouTube**](https://youtube.com/)
+```
+  - verbosus fp: 01140a85e4011320958a22142494d67214254c5e2214254c5e22080014254c5e220000000000
+  - pacto fp: 02cc5be6d05192e17de041538508bc22
+  - note: false-positive rate (38/986,910)
+```
+
+[**X**](https://x.com/)
+```
+  - verbosus fp: 01140a85e40914514bd522140a85e4721420958a701420958a220800140a85e4720000001609
+  - pacto fp: 0221b4e46bbd0e5c037f5a852ca3fdc0
+  - note: false-positive rate (6/986,910)
+```
+
+# HTTP-Basma Tool
+
+HTTP-Basma is a C++ tool I developed to showcase the practicality and viability of this algorithm. It leverages Chilkat's library for all HTTP socket interactions and utilizes other supporting classes within the library. Additionally, the tool includes a demangler feature that can dissect and reverse the verbosus fuzzy-hash, outputting a comprehensive JSON object, and a comparator function that outputs the differences between two verbosus fingerprints. 
+
+Be aware that some output of the tool might use slightly different probe numbers, but the underlying order remains consistent: P1->P1, P2->P2, P3->P3, P4->P4, P->P5, P6->P6F, P7->P6L, P8->P7a.
+When requesting a given domain/IP, the response could be saved to a CSV or JSON file with a plethora of information about the server response headers and each probe’s unique fingerprint.
+
+The tool's demangler function "-i/--demangle_json" takes a verbosus fingerprint and reconstructs the attributes of each probe, outputting a comprehensive JSON object. Notably, when attempting to reverse the FNV-1a hashes, the demangler utilizes two local databases: options.csv for allowed HTTP methods and status_line_db.csv for status-line reason phrases. If either of these database files is missing, the corresponding hash reversal feature is automatically disabled. These databases were compiled from a scan of the top 1 million Majestic websites.
+
+The comparator option "-C/--compare" compares two verbosus fingerprints and prints out the differences across the major components for each of the probes.
+
+## The Demangler
+
+The tool's demangler function "-i/--demangle_json" takes a verbosus fingerprint and reconstructs the attributes of each probe, outputting a comprehensive JSON object. Notably, when attempting to reverse the FNV-1a hashes, the demangler utilizes two local databases: `options.csv` for allowed HTTP methods and `status_line_db.csv` for status-line reason phrases. If either of these database files is missing, the corresponding hash reversal feature is automatically disabled. These databases were compiled from a scan of the top 1 million Majestic websites.
+
+The demangling of the verbosus’s fingerprint, for the domain example.com:
+
+```
+HTTPBasma.exe -d example.com
+
+  [*] 2026-05-19 08:06:32 AM -> example.com:80:0
+
+  V: 01140a85e40014514bd522142494d67214254c5e721420958a22020214254c5e720000001609
+  P: 0246d98c10269e02096cdc1024b12d4a
+```
+
+<details>
+<summary>Demangler Output (click to expand)</summary>
+  
+```json
+{
+  "type": "verbosus",
+  "fp": "01140a85e40014514bd522142494d67214254c5e721420958a22020214254c5e720000001609",
+  "p1": {
+    "type": "get_normal",
+    "fp": "140a85e400",
+    "status_line": {
+      "http_version": {
+        "fp": "14",
+        "val_cmt": "HTTP/1.1"
+      },
+      "status_code": {
+        "fp": "0a",
+        "val_cmt": "200"
+      },
+      "http_reason": {
+        "fp": "85e4",
+        "val_cmt": "OK"
+      },
+      "sl_reversed_db": {
+        "http_version": "HTTP/1.1",
+        "status_code": [
+          200,
+          404,
+          403,
+          500,
+          204,
+          999,
+          888,
+          603
+        ],
+        "http_reason": "OK"
+      }
+    },
+    "sts_hdr": {
+      "fp": "00",
+      "cmt": "this header is not used"
+    }
+  },
+  "p2": {
+    "type": "get_invalid_ver_nb",
+    "fp": "14514bd522",
+    "status_line": {
+      "http_version": {
+        "fp": "14",
+        "val_cmt": "HTTP/1.1"
+      },
+      "status_code": {
+        "fp": "51",
+        "val_cmt": "505"
+      },
+      "http_reason": {
+        "fp": "4bd5",
+        "val_cmt": "HTTP Version Not Supported"
+      },
+      "sl_reversed_db": {
+        "http_version": "HTTP/1.1",
+        "status_code": [
+          505
+        ],
+        "http_reason": "HTTP Version Not Supported"
+      }
+    },
+    "cont_len_hdr": {
+      "fp": "22",
+      "name": "Content-Length",
+      "value": ">1",
+      "cmt": "content-length/transfer-encoding:chunked header is present with either of the size values: [0,1,>1]"
+    },
+    "cnx": {
+      "ka": false,
+      "c": true
+    }
+  },
+  "p3": {
+    "type": "get_rnd_resource",
+    "fp": "142494d672",
+    "status_line": {
+      "http_version": {
+        "fp": "14",
+        "val_cmt": "HTTP/1.1"
+      },
+      "status_code": {
+        "fp": "24",
+        "val_cmt": "404"
+      },
+      "http_reason": {
+        "fp": "94d6",
+        "val_cmt": "Not Found"
+      },
+      "sl_reversed_db": {
+        "http_version": "HTTP/1.1",
+        "status_code": [
+          404,
+          403,
+          501,
+          410,
+          204,
+          400,
+          200,
+          418
+        ],
+        "http_reason": "Not Found"
+      }
+    },
+    "cont_len_hdr": {
+      "fp": "72",
+      "name": "Transfer-Encoding",
+      "value": ">1",
+      "cmt": "content-length/transfer-encoding:chunked header is present with either of the size values: [0,1,>1]"
+    },
+    "cnx": {
+      "ka": true,
+      "c": false
+    }
+  },
+  "p4": {
+    "type": "get_rnd_verb",
+    "fp": "14254c5e72",
+    "status_line": {
+      "http_version": {
+        "fp": "14",
+        "val_cmt": "HTTP/1.1"
+      },
+      "status_code": {
+        "fp": "25",
+        "val_cmt": "405"
+      },
+      "http_reason": {
+        "fp": "4c5e",
+        "val_cmt": "Method Not Allowed"
+      },
+      "sl_reversed_db": {
+        "http_version": "HTTP/1.1",
+        "status_code": [
+          405,
+          403,
+          204,
+          418,
+          404
+        ],
+        "http_reason": "Method Not Allowed"
+      }
+    },
+    "cont_len_hdr": {
+      "fp": "72",
+      "name": "Transfer-Encoding",
+      "value": ">1",
+      "cmt": "content-length/transfer-encoding:chunked header is present with either of the size values: [0,1,>1]"
+    },
+    "cnx": {
+      "ka": true,
+      "c": false
+    }
+  },
+  "p5": {
+    "type": "get_lowercase_verb",
+    "fp": "1420958a22",
+    "status_line": {
+      "http_version": {
+        "fp": "14",
+        "val_cmt": "HTTP/1.1"
+      },
+      "status_code": {
+        "fp": "20",
+        "val_cmt": "400"
+      },
+      "http_reason": {
+        "fp": "958a",
+        "val_cmt": "Bad Request"
+      },
+      "sl_reversed_db": {
+        "http_version": "HTTP/1.1",
+        "status_code": [
+          400,
+          422,
+          405,
+          401
+        ],
+        "http_reason": "Bad Request"
+      }
+    },
+    "cont_len_hdr": {
+      "fp": "22",
+      "name": "Content-Length",
+      "value": ">1",
+      "cmt": "content-length/transfer-encoding:chunked header is present with either of the size values: [0,1,>1]"
+    },
+    "cnx": {
+      "ka": false,
+      "c": true
+    }
+  },
+  "p6f": {
+    "type": "get_accept_encoding_full",
+    "fp": "02",
+    "cont_enc_hdr": {
+      "value": "br",
+      "empty_value": false,
+      "total_plus": 0
+    }
+  },
+  "p6l": {
+    "type": "get_accept_encoding_less",
+    "fp": "02",
+    "cont_enc_hdr": {
+      "value": "br",
+      "empty_value": false,
+      "total_plus": 0
+    }
+  },
+  "p7a": {
+    "type": "options_allow_hdr",
+    "fp": "14254c5e72000000",
+    "status_line": {
+      "http_version": {
+        "fp": "14",
+        "val_cmt": "HTTP/1.1"
+      },
+      "status_code": {
+        "fp": "25",
+        "val_cmt": "405"
+      },
+      "http_reason": {
+        "fp": "4c5e",
+        "val_cmt": "Method Not Allowed"
+      },
+      "sl_reversed_db": {
+        "http_version": "HTTP/1.1",
+        "status_code": [
+          405,
+          403,
+          204,
+          418,
+          404
+        ],
+        "http_reason": "Method Not Allowed"
+      }
+    },
+    "cont_len_hdr": {
+      "fp": "72",
+      "name": "Transfer-Encoding",
+      "value": ">1",
+      "cmt": "content-length/transfer-encoding:chunked header is present with either of the size values: [0,1,>1]"
+    },
+    "allow_hdr": {
+      "fp": "000000",
+      "cmt": "this header is not used"
+    },
+    "cnx": {
+      "ka": true,
+      "c": false
+    }
+  }
+}
+```
+</details>
+
+## The Comparator Option
+
+The comparator option "-C/--compare" compares two verbosus fingerprints and prints out the differences across the major components for each of the probes.
+
+For example, comparing the following two fingerprints for Google and YouTube:
+
+```
+HTTPBasma.exe --compare 01140a85e4001320958a22142494d62214254c5e2214254c5e22080014254c5e220000000000,01140a85e4011320958a22142494d67214254c5e2214254c5e22080014254c5e220000000000
+```
+
+Results in this output:
+
+```
+ < FPrnt-1 Vs. FPrnt-2 >
+
+ [ P1 ]
+    {Strict-Transport-Security}
+      sts header: 00 != 01
+
+ [ P2 ]
+ [ P3 ]
+    {Content-Length}
+
+      cl_name: 2 != 7
+
+ [ P4 ]
+ [ P5 ]
+ [ P6F ]
+ [ P6L ]
+ [ P7a ]
+```
+
+The output reveals differences specifically in the hash component of the P1 probe, where the STS header is present in the first fp and not the other. Moreover, the encoding of the "Content-Length" is different between the two fingerprints for probe P3.
 
 ---
 
