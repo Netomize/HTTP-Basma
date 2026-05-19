@@ -5,7 +5,7 @@
 
 	details    structures for the dissection of the fingerprint
 
-			   See LICENSE file in top level directory for details.
+			   See LICENSE file for details.
 
 	copyright  Netomize. Copyright (c) 2026.  All rights reserved.
 */
