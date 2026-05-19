@@ -6,14 +6,14 @@
 
 # Introduction
 
-In the realm of cybersecurity, accurately identifying and characterizing web servers is crucial for threat detection, vulnerability assessment, and network mapping. We introduce HTTP-Basma, a novel active fingerprinting algorithm that unveils unique server profiles through a multi-layered approach, thereby addressing this challenge.
+In the realm of cybersecurity, accurately identifying and characterizing web servers is crucial for threat detection, vulnerability assessment, and network mapping. We introduce **HTTP-Basma**, a novel active fingerprinting algorithm that unveils unique server profiles through a multi-layered approach, thereby addressing this challenge.
 
 Key Features:
 Crafted Requests, Revealing Responses: HTTP-Basma sends 8 meticulously designed HTTP probes, eliciting distinctive responses that reflect server configurations.
 Dual Hashing for Versatility. The algorithm generates two hashes:
 
-  -	A 38-byte fuzzy hash, "verbosus", offering reversibility
-  -	A 16-byte one-way hash, "pacto", derived from verbosus, enhancing privacy and security
+  -	A 38-byte fuzzy hash, "<u>verbosus</u>", offering reversibility
+  -	A 16-byte one-way hash, "<u>pacto</u>", derived from verbosus, enhancing privacy and security
 
 Clustering and Hunting: These hashes empower server clustering, identification of unique and similar servers, and the pursuit of malicious actors with heightened confidence.
 
