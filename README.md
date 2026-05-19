@@ -90,6 +90,46 @@ HTTP-Basma is a C++ tool I developed to showcase the practicality and viability 
 
 Be aware that some output of the tool might use slightly different probe numbers, but the underlying order remains consistent: P1->P1, P2->P2, P3->P3, P4->P4, P->P5, P6->P6F, P7->P6L, P8->P7a.
 
+## Tool's Options
+
+<details>
+<summary>click to expand</summary>
+	
+```	
+Usage:
+  HTTP-Basma [OPTION...]
+
+  -d, --domain arg         domains/IPs (you may query multiple domains, comma separated)
+  -p, --port arg           port number
+  -s, --ssl                does the HTTP connection have to be carried over SSL/TLS?
+  -q, --qpath              check domain with url path included (not recommended)
+  -w, --redirect           enable/disable HTTP redirects. If disabled/false, only the next redirect is followed,
+                           otherwise, all redirects are followed (default: true)
+  -t, --ctimeout arg       socket connection timeout value in seconds (default: 1)
+  -g, --rtimeout arg       socket read (from the server) timeout value in seconds (default: 1)
+  -e, --sleep arg          the duration (in milliseconds) to pause between each request (default: 100)
+  -x, --proxy arg          proxy config: <"socks4|socks5|http">,<domain>,<port>,<bool:direct_tls>,<login>,<pass>
+                                         all values are comma-separated. <direct_tls> is ignored with a non-HTTP proxy
+  -f, --file arg           file with list of domains/IPs (requires "-c/--csv" or "-j/--json")
+  -P, --parallel           Scan list of domains passed via the "-f/--file" option in parallel
+  -c, --csv                save to csv file; if the option 'n' is not specified, the CSV filename will be auto
+                           generated
+  -n, --csvfile arg        name of the CSV file
+  -j, --json               save to json file; if the option 'l' is not specified, the JSON filename will be auto
+                           generated
+  -l, --jsonfile arg       name of the JSON file
+  -r, --saveh              save request response headers
+  -o, --pjson              display fingerprint dissection to the console as a JSON object
+  -i, --demangle_json arg  demangle a fingerprint into a detailed json format (you can have more than one, comma
+                           separated)
+  -u, --demangle_txt arg   output a concise text format of the fingerprint, comma-separated for multiple results
+  -C, --compare arg        compare two verbosus fingerprints (comma-separated)
+  -a, --pacto arg          obtain the Pacto fingerprint using Verbosus
+  -h, --help               print usage	
+```
+
+</details>
+
 ## Detailed Output
 
 When requesting a given domain/IP, the response could be saved to a CSV or JSON file with a plethora of information about the server response headers and each probe’s unique fingerprint.
