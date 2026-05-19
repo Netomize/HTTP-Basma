@@ -49,9 +49,11 @@ Sample of fingerprints:
 ```
 [**Havoc**](https://github.com/HavocFramework/Havoc)
 ```
-  - verbosus fp: 01142494d600142494d622142494d622142494d622142494d6220000142494d6220000000000
-  - pacto fp: 0286559412a4e004eb91e71a9a263f10
-  - note: false-positive rate 0.0073 (73/1-million)
+  - verbosus fp: 01142494d60914514bd522142494d6221420958a701420958a220000140e04922032c37f1609
+  - pacto fp: 020769322f3d94ac2f258ddf5ce08502
+  - note-1: false-positive rate 0
+  - note-2: tevedadav.site/43.209.165.126:443 (TLS)
+    - sample-(sha-256): 9aa1dec8dd12f8adc7fc1274e1958f3613450109ee8b4ec6442a0fcf06df0972
 ```
 
 [**BruteRatel**](https://bruteratel.com/)
