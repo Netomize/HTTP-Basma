@@ -100,7 +100,7 @@ For example, to get the fingerprint of the server https://google.com, and save t
 HTTPBasma.exe -d https://google.com --json --csv --saveh
 ```
 
-In the folder, google_output, 
+In the folder `Output`, you'll find the CSV file [google_hb_results_2026-05-19_08-35-38_am.csv](https://github.com/Netomize/HTTP-Basma/blob/main/Output/google_hb_results_2026-05-19_08-35-38_am.csv) and the JSON file [google_hb_results_2026-05-19_08-35-38_am.json](https://github.com/Netomize/HTTP-Basma/blob/main/Output/google_hb_results_2026-05-19_08-35-38_am.json).
 
 ## The Demangler
 
