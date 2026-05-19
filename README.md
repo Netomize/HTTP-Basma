@@ -90,7 +90,17 @@ HTTP-Basma is a C++ tool I developed to showcase the practicality and viability 
 
 Be aware that some output of the tool might use slightly different probe numbers, but the underlying order remains consistent: P1->P1, P2->P2, P3->P3, P4->P4, P->P5, P6->P6F, P7->P6L, P8->P7a.
 
+## Detailed Output
+
 When requesting a given domain/IP, the response could be saved to a CSV or JSON file with a plethora of information about the server response headers and each probe’s unique fingerprint.
+
+For example, to get the fingerprint of the server https://google.com, and save the results to a JSON and CSV file, while saving the HTTP response headers of every probe:
+
+```
+HTTPBasma.exe -d https://google.com --json --csv --saveh
+```
+
+In the folder, google_output, 
 
 ## The Demangler
 
@@ -99,12 +109,7 @@ The tool's demangler function "-i/--demangle_json" takes a verbosus fingerprint 
 The demangling of the verbosus’s fingerprint, for the domain example.com:
 
 ```
-HTTPBasma.exe -d example.com
-
-  [*] 2026-05-19 08:06:32 AM -> example.com:80:0
-
-  V: 01140a85e40014514bd522142494d67214254c5e721420958a22020214254c5e720000001609
-  P: 0246d98c10269e02096cdc1024b12d4a
+HTTPBasma.exe --demangle_json 01140a85e40014514bd522142494d67214254c5e721420958a22020214254c5e720000001609
 ```
 
 <details>
@@ -368,6 +373,8 @@ HTTPBasma.exe -d example.com
 }
 ```
 </details>
+
+Observe that the "status_code" array contains multiple HTTP status codes. This occurs because different servers might use the same reason phrase for different status codes, resulting in identical FNV-1a hashes.
 
 ## The Comparator Option
 
