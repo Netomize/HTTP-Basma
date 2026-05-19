@@ -18,11 +18,11 @@ Dual Hashing for Versatility. The algorithm generates two hashes:
 Clustering and Hunting: These hashes empower server clustering, identification of unique and similar servers, and the pursuit of malicious actors with heightened confidence.
 
 Modular Design for Expansion: The algorithm's architecture fosters the addition of new hashing variants, encouraging collaboration and adaptability.
-In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase some compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of various malware families' C&C HTTP servers. The source code and supporting data will be made available.
+In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of C&C HTTP servers for various malware families. The source code and supporting data will be made available.
 
 ---
 
-HTTP-Basma’s algorithm's core idea centers on sending 8 specially crafted HTTP requests with different requirements to solicit different responses from the server. Once the server response is retrieved, the HTTP status line is surgically dissected for all elements and encoded optimally. Additionally, select headers from the server response are checked for encoding as well.
+HTTP-Basma’s algorithm's core idea centers on sending 8 specially crafted HTTP requests with varying requirements to elicit different responses from the server. Once the server response is retrieved, the HTTP status line is surgically dissected for all elements and encoded optimally. Additionally, select headers from the server response are checked for encoding as well.
 
 The requests it sends are of these types:
 
@@ -89,11 +89,8 @@ Sample of fingerprints:
 HTTP-Basma is a C++ tool I developed to showcase the practicality and viability of this algorithm. It leverages Chilkat's library for all HTTP socket interactions and utilizes other supporting classes within the library. Additionally, the tool includes a demangler feature that can dissect and reverse the verbosus fuzzy-hash, outputting a comprehensive JSON object, and a comparator function that outputs the differences between two verbosus fingerprints. 
 
 Be aware that some output of the tool might use slightly different probe numbers, but the underlying order remains consistent: P1->P1, P2->P2, P3->P3, P4->P4, P->P5, P6->P6F, P7->P6L, P8->P7a.
+
 When requesting a given domain/IP, the response could be saved to a CSV or JSON file with a plethora of information about the server response headers and each probe’s unique fingerprint.
-
-The tool's demangler function "-i/--demangle_json" takes a verbosus fingerprint and reconstructs the attributes of each probe, outputting a comprehensive JSON object. Notably, when attempting to reverse the FNV-1a hashes, the demangler utilizes two local databases: options.csv for allowed HTTP methods and status_line_db.csv for status-line reason phrases. If either of these database files is missing, the corresponding hash reversal feature is automatically disabled. These databases were compiled from a scan of the top 1 million Majestic websites.
-
-The comparator option "-C/--compare" compares two verbosus fingerprints and prints out the differences across the major components for each of the probes.
 
 ## The Demangler
 
