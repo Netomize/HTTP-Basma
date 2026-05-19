@@ -18,7 +18,7 @@ Dual Hashing for Versatility. The algorithm generates two hashes:
 Clustering and Hunting: These hashes empower server clustering, identification of unique and similar servers, and the pursuit of malicious actors with heightened confidence.
 
 Modular Design for Expansion: The algorithm's architecture fosters the addition of new hashing variants, encouraging collaboration and adaptability.
-In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of C&C HTTP servers for various malware families.
+In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase compelling findings from [scanning the top 1 million Majestic websites](https://github.com/Netomize/HTTP-Basma/releases/download/v1.0/majestic_1_million_http_basma_fingerprints_csv.zip), including the identification and clustering of C&C HTTP servers for various malware families.
 
 ---
 
@@ -37,7 +37,7 @@ The requests it sends are of these types:
 
 Following each request, the server's response is analyzed to extract specific headers and their values. This extracted data undergoes further processing, including dissection and encoding, to generate a reversible fingerprint.
 
-The full technical details of how the algorithm works are in the attached paper.
+The full technical details of how the algorithm works are in the attached [paper](https://github.com/Netomize/HTTP-Basma/blob/main/http-basma_paper_mfmokbel_v1.pdf).
 
 Sample of fingerprints:
 
@@ -88,7 +88,7 @@ Sample of fingerprints:
 
 HTTP-Basma is a C++ tool I developed to showcase the practicality and viability of this algorithm. It leverages Chilkat's library for all HTTP socket interactions and utilizes other supporting classes within the library. Additionally, the tool includes a demangler feature that can dissect and reverse the verbosus fuzzy-hash, outputting a comprehensive JSON object, and a comparator function that outputs the differences between two verbosus fingerprints. 
 
-Be aware that some output of the tool might use slightly different probe numbers, but the underlying order remains consistent: P1->P1, P2->P2, P3->P3, P4->P4, P->P5, P6->P6F, P7->P6L, P8->P7a.
+Be aware that some output of the tool might use slightly different probe numbers, but the underlying order remains consistent: `P1->P1, P2->P2, P3->P3, P4->P4, P->P5, P6->P6F, P7->P6L, P8->P7a`.
 
 ## Tool's Options
 
