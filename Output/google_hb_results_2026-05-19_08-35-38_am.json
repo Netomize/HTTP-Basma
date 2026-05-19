@@ -1,0 +1,193 @@
+{
+    "title": "Fingerprints Dissection",
+    "author": "HTTP-Basma",
+    "version": "1.0 (64-bit) - rel: Plasma - June XY, 2026",
+    "starting_date": "2026-05-19",
+    "starting_time": "08:35:38 AM",
+    "domains_total": 1,
+    "domains": [
+        {
+            "domain": {
+                "target": "google.com",
+                "port": 443,
+                "ssl": true
+            },
+            "fp": {
+                "verbosus": "01140a85e4001320958a22142494d62214254c5e2214254c5e22080014254c5e220000000000",
+                "pacto": "0202be780e1eaae0eaa6184e20c909b6"
+            },
+            "p1": {
+                "req": {
+                    "type": "get_normal",
+                    "date": "2026-05-19",
+                    "time": "08:35:38 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 200 OK",
+                    "hdrs_total": 17,
+                    "hdrs": "Content-Type: text/html; charset=ISO-8859-1\r\nDate: Tue, 19 May 2026 12:35:39 GMT\r\nExpires: -1\r\nCache-Control: private, max-age=0\r\nContent-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-vDwc9vSvUQBp06OoE-BrrQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp\r\nAccept-CH: Sec-CH-Prefers-Color-Scheme\r\nP3P: CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"\r\nServer: gws\r\nX-XSS-Protection: 0\r\nX-Frame-Options: SAMEORIGIN\r\nSet-Cookie: __Secure-STRP=AEEP7gLqfDvYY8hTMO_u-juPeHqCzEIiNz5eIgpp-3bH1wDbWW2H_m_0eJei0HtR0avYzXF41D86rJVNgTiLwQWi6ddOK-VutXao; expires=Tue, 19-May-2026 12:40:39 GMT; path=/; domain=.google.com; Secure; SameSite=strict\r\nSet-Cookie: AEC=AaJma5vCYUVTemno9MRPyp3F6WryKws_OLpRb2pFaK_lCdc-7WsHyS0h; expires=Sun, 15-Nov-2026 12:35:39 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax\r\nSet-Cookie: NID=531=fL79YWEQ8iwfQBf4adFyNGIiZv1kTsil3X06uwJPQvzArjPP5u_hQKmC2Wfz0o-JE5hWYvUJhensDzmb_f4KGwA65PTllWE9L-nM4L8qt9FHn5_DPXagX0GOGlJrwDmAaa32tef1lzBbai8MCgEFdvnFvradeXjuo0JJ5qUnmybL6OTjXLLIT_yFwia3nutY-f-N5TWOF_61qwCFVQHi1ycQLzp9dQ; expires=Wed, 18-Nov-2026 12:35:39 GMT; path=/; domain=.google.com; HttpOnly\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\nAccept-Ranges: none\r\nVary: Accept-Encoding\r\nTransfer-Encoding: chunked\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "140a85e400",
+                    "resp_hdrs": "205d4c61",
+                    "sts": "00"
+                }
+            },
+            "p2": {
+                "req": {
+                    "type": "get_invalid_ver_nb",
+                    "date": "2026-05-19",
+                    "time": "08:35:39 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.0 400 Bad Request",
+                    "hdrs_total": 4,
+                    "hdrs": "Content-Type: text/html; charset=UTF-8\r\nReferrer-Policy: no-referrer\r\nContent-Length: 1555\r\nDate: Tue, 19 May 2026 12:35:39 GMT\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "1320958a22",
+                    "resp_hdrs": "3109bc77"
+                }
+            },
+            "p3": {
+                "req": {
+                    "type": "get_rnd_resource",
+                    "date": "2026-05-19",
+                    "time": "08:35:39 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 404 Not Found",
+                    "hdrs_total": 5,
+                    "hdrs": "Content-Type: text/html; charset=UTF-8\r\nReferrer-Policy: no-referrer\r\nContent-Length: 1577\r\nDate: Tue, 19 May 2026 12:35:39 GMT\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "142494d622",
+                    "resp_hdrs": "9d0cbb35"
+                }
+            },
+            "p4": {
+                "req": {
+                    "type": "get_rnd_verb",
+                    "date": "2026-05-19",
+                    "time": "08:35:39 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 405 Method Not Allowed",
+                    "hdrs_total": 5,
+                    "hdrs": "Content-Type: text/html; charset=UTF-8\r\nReferrer-Policy: no-referrer\r\nContent-Length: 1595\r\nDate: Tue, 19 May 2026 12:35:40 GMT\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "14254c5e22",
+                    "resp_hdrs": "9d0cbb35"
+                }
+            },
+            "p5": {
+                "req": {
+                    "type": "get_lowercase_verb",
+                    "date": "2026-05-19",
+                    "time": "08:35:40 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 405 Method Not Allowed",
+                    "hdrs_total": 5,
+                    "hdrs": "Content-Type: text/html; charset=UTF-8\r\nReferrer-Policy: no-referrer\r\nContent-Length: 1588\r\nDate: Tue, 19 May 2026 12:35:40 GMT\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "14254c5e22",
+                    "resp_hdrs": "9d0cbb35"
+                }
+            },
+            "p6f": {
+                "req": {
+                    "type": "get_accept_encoding_full",
+                    "date": "2026-05-19",
+                    "time": "08:35:40 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 200 OK",
+                    "hdrs_total": 16,
+                    "hdrs": "Content-Type: text/html; charset=ISO-8859-1\r\nDate: Tue, 19 May 2026 12:35:40 GMT\r\nExpires: -1\r\nCache-Control: private, max-age=0\r\nContent-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-S9lXZl-TrVSUFrUffqUGAA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp\r\nAccept-CH: Sec-CH-Prefers-Color-Scheme\r\nP3P: CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"\r\nContent-Encoding: gzip\r\nServer: gws\r\nX-XSS-Protection: 0\r\nX-Frame-Options: SAMEORIGIN\r\nSet-Cookie: __Secure-STRP=AEEP7gIZZlVPqTaIXHNP1-wSMrf1xiEUQNW2f_MgJSR37oBGZyaEGONMxgFiOM7UfRzEj6sQ__Wi0d0QnCaGA2Bm8n_LIMHLkZp0; expires=Tue, 19-May-2026 12:40:40 GMT; path=/; domain=.google.com; Secure; SameSite=strict\r\nSet-Cookie: AEC=AaJma5so1F-NAVEgOEfcPdfKh8ImgCbWNDGrHMDCiV8vc3F_rjsgv35nt0s; expires=Sun, 15-Nov-2026 12:35:40 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax\r\nSet-Cookie: NID=531=CppePdJ-ohjZup0WHzXQD1Io0SnNCNqTy5jIi8GjRcsGue0UeIlW-14FORjnIxFioa-7egOxhuYmC2UgfgJb7yC9D_dRHUAADy6b4I6_h-fcK-uALFgO3nXfrxDsx49tq8xA7Kbh-PD1sdxpS6PDxDBtpiyuDMLi0Bya7mHPxmgi66X9AYMNI9Uh3k_Krl5AvC1EfUJ2WTczURFJxW0kbH13FPhL3w; expires=Wed, 18-Nov-2026 12:35:40 GMT; path=/; domain=.google.com; HttpOnly\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\nTransfer-Encoding: chunked\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "08",
+                    "resp_hdrs": "3a752f93"
+                }
+            },
+            "p6l": {
+                "req": {
+                    "type": "get_accept_encoding_less",
+                    "date": "2026-05-19",
+                    "time": "08:35:40 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 200 OK",
+                    "hdrs_total": 17,
+                    "hdrs": "Content-Type: text/html; charset=ISO-8859-1\r\nDate: Tue, 19 May 2026 12:35:41 GMT\r\nExpires: -1\r\nCache-Control: private, max-age=0\r\nContent-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-_pJhgl_FovgBUhuuLfFuug' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp\r\nAccept-CH: Sec-CH-Prefers-Color-Scheme\r\nP3P: CP=\"This is not a P3P policy! See g.co/p3phelp for more info.\"\r\nServer: gws\r\nX-XSS-Protection: 0\r\nX-Frame-Options: SAMEORIGIN\r\nSet-Cookie: __Secure-STRP=AEEP7gIjAB8u1PFqTACAVYQvRd3c3VOBZQhYld1LGJos5U6nv-T8oCmsVZG0Jux27p7oy2IOnJ7x2fb2EolOtcw-iJG9OWIbEadp; expires=Tue, 19-May-2026 12:40:41 GMT; path=/; domain=.google.com; Secure; SameSite=strict\r\nSet-Cookie: AEC=AaJma5uzeZcT6xYJ17b81t2Kayzbw_6vVN29vqkSUU7gUyh3KwKSQJKfRA; expires=Sun, 15-Nov-2026 12:35:41 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax\r\nSet-Cookie: NID=531=COiBeaQ-oDkp752o1dnWqMZyp6z9zlHYxM5GGNk_ESQvK2duytTjg_Mt6s_FuAN8DqH7PAecppfmS-ofjOktJIOP1RZdrg5ne6Fr8lhUiFj-2DS8A8m_Zxs0gHBLQqsk5_f2TYml4EcC16KaQ1jkLvalXpCbWP00x3Kol-pxc--9fl4AIvwXvQ94yBnUeI1wxG8TMYSXSWCaOOZbF7upVeAEO7hF; expires=Wed, 18-Nov-2026 12:35:41 GMT; path=/; domain=.google.com; HttpOnly\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\nAccept-Ranges: none\r\nVary: Accept-Encoding\r\nTransfer-Encoding: chunked\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "00",
+                    "resp_hdrs": "205d4c61"
+                }
+            },
+            "p7a": {
+                "req": {
+                    "type": "options_allow_hdr",
+                    "date": "2026-05-19",
+                    "time": "08:35:41 AM",
+                    "status": "success"
+                },
+                "resp": {
+                    "status_line": "HTTP/1.1 405 Method Not Allowed",
+                    "hdrs_total": 5,
+                    "hdrs": "Content-Type: text/html; charset=UTF-8\r\nReferrer-Policy: no-referrer\r\nContent-Length: 1592\r\nDate: Tue, 19 May 2026 12:35:41 GMT\r\nAlt-Svc: h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000\r\n",
+                    "cnx": {
+                        "ka": false,
+                        "c": false
+                    }
+                },
+                "fp": {
+                    "final": "14254c5e22000000",
+                    "resp_hdrs": "9d0cbb35",
+                    "allow": "000000"
+                }
+            }
+        }
+    ],
+    "ending_date": "2026-05-19",
+    "ending_time": "08:35:41 AM"
+}

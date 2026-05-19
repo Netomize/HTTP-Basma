@@ -1,0 +1,59 @@
+date|time|domain|port|is_ssl|fp_verbosus|fp_pacto|p1_fp|p1_sl|p1_nh|p1_rh|p1_rh_fp|p2_fp|p2_sl|p2_nh|p2_rh|p3_fp|p3_sl|p3_nh|p3_rh|p4_fp|p4_sl|p4_nh|p4_rh|p5_fp|p5_sl|p5_nh|p5_rh|p6f_fp|p6f_sl|p6f_nh|p6f_rh|p6l_fp|p7a_fp|p7a_sl|p7a_nh|p7a_rh
+2026-05-19|08:35:38 AM|google.com|443|1|01140a85e4001320958a22142494d62214254c5e2214254c5e22080014254c5e220000000000|0202be780e1eaae0eaa6184e20c909b6|140a85e400|HTTP/1.1 200 OK|17|"Content-Type: text/html; charset=ISO-8859-1
+Date: Tue, 19 May 2026 12:35:39 GMT
+Expires: -1
+Cache-Control: private, max-age=0
+Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-vDwc9vSvUQBp06OoE-BrrQ' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+Accept-CH: Sec-CH-Prefers-Color-Scheme
+P3P: CP=""This is not a P3P policy! See g.co/p3phelp for more info.""
+Server: gws
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: __Secure-STRP=AEEP7gLqfDvYY8hTMO_u-juPeHqCzEIiNz5eIgpp-3bH1wDbWW2H_m_0eJei0HtR0avYzXF41D86rJVNgTiLwQWi6ddOK-VutXao; expires=Tue, 19-May-2026 12:40:39 GMT; path=/; domain=.google.com; Secure; SameSite=strict
+Set-Cookie: AEC=AaJma5vCYUVTemno9MRPyp3F6WryKws_OLpRb2pFaK_lCdc-7WsHyS0h; expires=Sun, 15-Nov-2026 12:35:39 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+Set-Cookie: NID=531=fL79YWEQ8iwfQBf4adFyNGIiZv1kTsil3X06uwJPQvzArjPP5u_hQKmC2Wfz0o-JE5hWYvUJhensDzmb_f4KGwA65PTllWE9L-nM4L8qt9FHn5_DPXagX0GOGlJrwDmAaa32tef1lzBbai8MCgEFdvnFvradeXjuo0JJ5qUnmybL6OTjXLLIT_yFwia3nutY-f-N5TWOF_61qwCFVQHi1ycQLzp9dQ; expires=Wed, 18-Nov-2026 12:35:39 GMT; path=/; domain=.google.com; HttpOnly
+Alt-Svc: h3="":443""; ma=2592000,h3-29="":443""; ma=2592000
+Accept-Ranges: none
+Vary: Accept-Encoding
+Transfer-Encoding: chunked
+"|205d4c61|1320958a22|HTTP/1.0 400 Bad Request|4|"Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1555
+Date: Tue, 19 May 2026 12:35:39 GMT
+"|142494d622|HTTP/1.1 404 Not Found|5|"Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1577
+Date: Tue, 19 May 2026 12:35:39 GMT
+Alt-Svc: h3="":443""; ma=2592000,h3-29="":443""; ma=2592000
+"|14254c5e22|HTTP/1.1 405 Method Not Allowed|5|"Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1595
+Date: Tue, 19 May 2026 12:35:40 GMT
+Alt-Svc: h3="":443""; ma=2592000,h3-29="":443""; ma=2592000
+"|14254c5e22|HTTP/1.1 405 Method Not Allowed|5|"Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1588
+Date: Tue, 19 May 2026 12:35:40 GMT
+Alt-Svc: h3="":443""; ma=2592000,h3-29="":443""; ma=2592000
+"|08|HTTP/1.1 200 OK|16|"Content-Type: text/html; charset=ISO-8859-1
+Date: Tue, 19 May 2026 12:35:40 GMT
+Expires: -1
+Cache-Control: private, max-age=0
+Content-Security-Policy-Report-Only: object-src 'none';base-uri 'self';script-src 'nonce-S9lXZl-TrVSUFrUffqUGAA' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+Accept-CH: Sec-CH-Prefers-Color-Scheme
+P3P: CP=""This is not a P3P policy! See g.co/p3phelp for more info.""
+Content-Encoding: gzip
+Server: gws
+X-XSS-Protection: 0
+X-Frame-Options: SAMEORIGIN
+Set-Cookie: __Secure-STRP=AEEP7gIZZlVPqTaIXHNP1-wSMrf1xiEUQNW2f_MgJSR37oBGZyaEGONMxgFiOM7UfRzEj6sQ__Wi0d0QnCaGA2Bm8n_LIMHLkZp0; expires=Tue, 19-May-2026 12:40:40 GMT; path=/; domain=.google.com; Secure; SameSite=strict
+Set-Cookie: AEC=AaJma5so1F-NAVEgOEfcPdfKh8ImgCbWNDGrHMDCiV8vc3F_rjsgv35nt0s; expires=Sun, 15-Nov-2026 12:35:40 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+Set-Cookie: NID=531=CppePdJ-ohjZup0WHzXQD1Io0SnNCNqTy5jIi8GjRcsGue0UeIlW-14FORjnIxFioa-7egOxhuYmC2UgfgJb7yC9D_dRHUAADy6b4I6_h-fcK-uALFgO3nXfrxDsx49tq8xA7Kbh-PD1sdxpS6PDxDBtpiyuDMLi0Bya7mHPxmgi66X9AYMNI9Uh3k_Krl5AvC1EfUJ2WTczURFJxW0kbH13FPhL3w; expires=Wed, 18-Nov-2026 12:35:40 GMT; path=/; domain=.google.com; HttpOnly
+Alt-Svc: h3="":443""; ma=2592000,h3-29="":443""; ma=2592000
+Transfer-Encoding: chunked
+"|00|14254c5e22000000|HTTP/1.1 405 Method Not Allowed|5|"Content-Type: text/html; charset=UTF-8
+Referrer-Policy: no-referrer
+Content-Length: 1592
+Date: Tue, 19 May 2026 12:35:41 GMT
+Alt-Svc: h3="":443""; ma=2592000,h3-29="":443""; ma=2592000
+"
