@@ -18,7 +18,7 @@ Dual Hashing for Versatility. The algorithm generates two hashes:
 Clustering and Hunting: These hashes empower server clustering, identification of unique and similar servers, and the pursuit of malicious actors with heightened confidence.
 
 Modular Design for Expansion: The algorithm's architecture fosters the addition of new hashing variants, encouraging collaboration and adaptability.
-In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of C&C HTTP servers for various malware families. The source code and supporting data will be made available.
+In this paper, we first survey notable existing work on HTTP fingerprinting and then explore the algorithm's functionality, design, architecture, and outcomes. Additionally, we will showcase compelling findings from scanning the top 1 million Majestic websites, including the identification and clustering of C&C HTTP servers for various malware families.
 
 ---
 
@@ -454,7 +454,7 @@ The output reveals differences specifically in the hash component of the P1 prob
 
 # Release
 
-Netomize ships a Windows x64 compiled version of the public code in this repo.
+Netomize ships a Windows x64 compiled version of the public code in this repo. Moreover, the [majestic 1-million HTTP-Basma fingerprints CSV File - data set](https://github.com/Netomize/HTTP-Basma/releases/download/v1.0/majestic_1_million_http_basma_fingerprints_csv.zip) is shipped in the first release.
 
 # Third-party libraries used
 
