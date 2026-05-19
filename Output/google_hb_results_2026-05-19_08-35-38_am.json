@@ -1,11 +1,4 @@
-{
-    "title": "Fingerprints Dissection",
-    "author": "HTTP-Basma",
-    "version": "1.0 (64-bit) - rel: Plasma - June XY, 2026",
-    "starting_date": "2026-05-19",
-    "starting_time": "08:35:38 AM",
-    "domains_total": 1,
-    "domains": [
+
         {
             "domain": {
                 "target": "google.com",
@@ -190,4 +183,3 @@
     ],
     "ending_date": "2026-05-19",
     "ending_time": "08:35:41 AM"
-}
