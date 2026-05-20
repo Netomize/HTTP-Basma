@@ -63,14 +63,14 @@ int main(int argc, char* argv[])
             else
             {
                 std::cout << std::endl << "  [*] "
-                    << helper::get_date() << " " << helper::get_time() << dye::light_aqua(" -> ")
+                    << helper::get_date() << " " << helper::get_time() << rang::fg::cyan << " -> " << rang::fg::reset
                     << std::get<t::d::domain>(arg_opt::domains_vec.at(i)) << ":"
                     << std::get<t::d::port>(arg_opt::domains_vec.at(i)) << ":"
                     << std::get<t::d::ssl>(arg_opt::domains_vec.at(i))
                     << std::endl << std::endl;
 
-                std::cout << dye::green("  V: ") << fingerpints[fingerprint::version::verbosus] << std::endl;
-                std::cout << dye::red("  P: ") << fingerpints[fingerprint::version::pacto] << std::endl;
+                std::cout << rang::fg::green << "  V: " << rang::fg::reset << fingerpints[fingerprint::version::verbosus] << std::endl;
+                std::cout << rang::fg::red << "  P: " << rang::fg::reset << fingerpints[fingerprint::version::pacto] << std::endl;
             }
 
             if (arg_opt::save_to_csv_file)
@@ -141,11 +141,11 @@ int main(int argc, char* argv[])
         update_domain_fp_ctr.detach();
 
         std::cout << std::endl
-            << dye::green("+") << " Retreiving fingerprints for " << domains.size() << " domains" << std::endl << std::endl;
+            << rang::fg::green << "+" << rang::fg::reset << " Retreiving fingerprints for " << domains.size() << " domains" << std::endl << std::endl;
 
-        std::cout << dye::red("  S") << "tarted on : " << helper::get_date() << " " << helper::get_time() << std::endl << std::endl;
+        std::cout << rang::fg::red << "  S" << rang::fg::reset << "tarted on : " << helper::get_date() << " " << helper::get_time() << std::endl << std::endl;
 
-        std::cout << dye::green("  P") << "robing in " << (arg_opt::scan_file_in_parallel ? "parallel" : "sequence") << "...";
+        std::cout << rang::fg::green << "  P"<< rang::fg::reset << "robing in " << (arg_opt::scan_file_in_parallel ? "parallel" : "sequence") << "...";
 
         std::atomic<std::size_t> row_idx(0);
 
@@ -177,7 +177,7 @@ int main(int argc, char* argv[])
             }, exec_policy);
 
         std::cout << std::endl << std::endl;
-        std::cout << dye::red("  F") << "inished on: " << helper::get_date() << " " << helper::get_time() << std::endl;
+        std::cout << rang::fg::red << "  F" << rang::fg::reset << "inished on: " << helper::get_date() << " " << helper::get_time() << std::endl;
 
         if (arg_opt::save_to_json_file)
         {
@@ -1843,7 +1843,7 @@ helper::del_sstr(std::string& str, const std::string& del_str)
 void
 helper::print_probing_domain_progress(const std::size_t& i, const std::string& d)
 {
-    std::cout << "\r\033[K" << dye::green("  P") << "robing(" << dye::blue(i + 1) << ") -> " << d;
+    std::cout << "\r\033[K" << rang::fg::green << "  P" << rang::fg::reset << "robing(" << rang::fg::blue << (i + 1) << rang::fg::reset << ") -> " << d;
     std::cout.flush();
 }
 
@@ -1885,8 +1885,7 @@ domain::load_domains_file(const std::string& filename, std::vector<t::domain_tup
 void
 attivare_chilka_lic(void)
 {
-	// Insert your Chilkat license key
-    if (CkGlobal glob; glob.UnlockBundle("trial") != true)
+    if (CkGlobal glob; glob.UnlockBundle("30-day-trial") != true)
     {
         print_msg_exit("failed to unlock chilkat library using provided license");
     }
@@ -1895,7 +1894,10 @@ attivare_chilka_lic(void)
 void
 print_msg_exit(const std::string& msg)
 {
-    std::cerr << dye::green("* ") << helper::get_date() << "  " << helper::get_time() << dye::red(" -> ") << msg << std::endl;
+    std::cerr << rang::fg::green << "* " 
+              << rang::fg::reset << helper::get_date() << "  " << helper::get_time() 
+              << rang::fg::red << " -> " << rang::fg::reset << msg << std::endl;
+
     std::exit(1);
 }
 
@@ -2473,13 +2475,30 @@ helper::update_title_realtime(std::string msg, T& cntr_var, T& total_var)
     {
         std::wstringstream st_str;
         st_str << msg.c_str() << cntr_var << "/" << total_var << " (" << (cntr_var * 100) / total_var << "%)" << '\00';
-        SetConsoleTitle(st_str.str().c_str());
+        helper::set_console_tite(st_str.str());
         if (cntr_var == total_var) { break; }
     }
     // return; doesn't really terminate the thread!
-    // safe to call ExitThread here since the code is not allocating anything on the stack
+    // safe to call EXIT_CURRENT_THREAD() here since the code is not allocating anything on the stack
     // nothing else needs to be cleaned
-    ExitThread(0);
+    EXIT_CURRENT_THREAD();
+}
+
+// Linux and Windows versions
+void
+helper::set_console_tite(std::wstring msg)
+{
+#if defined(_WIN32)
+    SetConsoleTitle(msg.c_str());
+#elif defined(__linux__)
+    if (!isatty(STDOUT_FILENO)) return;
+
+    std::wstring_convert<std::codecvt_utf8<wchar_t>, wchar_t> conv;
+    std::string utf8 = conv.to_bytes(msg);
+
+    std::printf("\033]0;%s\007", utf8.c_str());
+    std::fflush(stdout);
+#endif
 }
 
 void
