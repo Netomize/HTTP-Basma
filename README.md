@@ -454,12 +454,12 @@ The output reveals differences specifically in the hash component of the P1 prob
 
 # Release
 
-Netomize ships a Windows x64 compiled version of the public code in this repo. Moreover, the [majestic 1-million HTTP-Basma fingerprints CSV File - data set](https://github.com/Netomize/HTTP-Basma/releases/download/v1.0/majestic_1_million_http_basma_fingerprints_csv.zip) is shipped in the first release.
+Netomize provides compiled Windows and Linux x64 versions of the public code in this repository. Moreover, the [majestic 1-million HTTP-Basma fingerprints CSV File - data set](https://github.com/Netomize/HTTP-Basma/releases/download/v1.0/majestic_1_million_http_basma_fingerprints_csv.zip) is shipped in the first release.
 
 # Third-party libraries used
 
 - [Chilkat v11.4.0](https://www.chilkatsoft.com/)
-- [Color Console: for console coloring](https://github.com/imfl/color-console)
+- [rang: for console coloring](https://github.com/agauniyal/rang)
 - [cxxopts (v3.3.1)](https://github.com/jarro2783/cxxopts)
 
 # Contributing
