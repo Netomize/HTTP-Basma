@@ -5,7 +5,7 @@
 
 	details    Header file for the HTTPBasma.cpp file.
 
-             See LICENSE file for details.
+               See LICENSE file for details.
 
 	copyright  Netomize. Copyright (c) 2026.  All rights reserved.
 */
@@ -13,7 +13,20 @@
 #pragma once
 
 #include <iostream>
-#include <Windows.h>
+
+#if defined(_WIN32)
+	#include <windows.h>
+	#define EXIT_CURRENT_THREAD() ExitThread(0)
+
+#elif defined(__linux__)
+	#include <unistd.h>
+	#include <codecvt>  // deprecated in C++17 but still works; see note below
+	#include <locale>
+
+	#include <pthread.h>
+	#define EXIT_CURRENT_THREAD() pthread_exit(nullptr)
+
+#endif
 
 #include <CkGlobal.h>
 #include "CkHttp.h"
@@ -31,8 +44,8 @@
 
 // https://github.com/jarro2783/cxxopts
 #include <cxxopts.hpp>
-// https://github.com/imfl/color-console
-#include <color.hpp>
+// https://github.com/agauniyal/rang
+#include <rang.hpp>
 
 #include <memory>
 #include <vector>
@@ -457,6 +470,8 @@ namespace helper
 	// thread
 	template <typename T>
 	void update_title_realtime(std::string msg, T& cntr_var, T& total_var);
+
+	void set_console_tite(std::wstring msg);
 
 	void print_probing_domain_progress(const std::size_t& i, const std::string& d);
 };
