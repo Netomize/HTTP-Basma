@@ -39,6 +39,8 @@ Following each request, the server's response is analyzed to extract specific he
 
 The full technical details of how the algorithm works are in the attached [paper](https://github.com/Netomize/HTTP-Basma/blob/main/http-basma_paper_mfmokbel_v1.pdf).
 
+This modular design philosophy treats each request's fingerprint as a building block, allowing for elegant refactoring, with the possibility to add and substract different requests fingerprints.
+
 Sample of fingerprints:
 
 [**CobaltStrike**](https://www.cobaltstrike.com/)
