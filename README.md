@@ -4,6 +4,8 @@
 
 # Adaptive Fingerprinting: HTTP-Basma's Multi-Stage Probing for Granular Server Differentiation
 
+HTTP-Basma is live at https://httpbasma.netomize.ca/
+
 # Introduction
 
 In the realm of cybersecurity, accurately identifying and characterizing web servers is crucial for threat detection, vulnerability assessment, and network mapping. We introduce **HTTP-Basma**, a novel active fingerprinting algorithm that unveils unique server profiles through a multi-layered approach, thereby addressing this challenge.
