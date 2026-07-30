@@ -470,7 +470,7 @@ Netomize provides compiled Windows and Linux x64 versions of the public code in 
 # Licensing
 
 - Netomize license
-- the license has been updated on July 30, 2026, and changed from BSD 3-Clause License to Netomize License
+- The license has been updated on July 30, 2026, and changed from BSD 3-Clause License to Netomize License
 
 # Contributing
 
