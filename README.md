@@ -467,6 +467,11 @@ Netomize provides compiled Windows and Linux x64 versions of the public code in 
 - [rang: for console coloring](https://github.com/agauniyal/rang)
 - [cxxopts (v3.3.1)](https://github.com/jarro2783/cxxopts)
 
+# Licensing
+
+- Netomize license
+- the license has been updated on July 30, 2026, and changed from BSD 3-Clause License to Netomize License
+
 # Contributing
 
 Open for pull requests and issues. Comments and suggestions are greatly appreciated.
